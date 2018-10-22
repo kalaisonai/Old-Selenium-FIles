@@ -1,11 +1,17 @@
-Feature: Leaftaps Automation
-Scenario: Login into Leaftaps
+Feature: Leaftaps Automation 
 
-Given Launch the browser
-And Load the URL
-And Maximize the browser
-And Set timeout
-When Enter the username
-And Enter the password
-When Click on login button
-Then Verify login is success
+@Smoke @Sanity
+Scenario Outline: Login into Leaftaps using DemoSalesManager 
+	When Enter the username as <username> 
+	And Enter the password as <password> 
+	When Click on login button 
+	And click on logout 
+	Examples: 
+		|username|password|
+		|DemoSalesManager|crmsfa|	
+@Sanity
+Scenario: signIN 
+	When Enter the username as DemoCSR 
+	And Enter the password as crmsfa 
+	When Click on login button  
+	
